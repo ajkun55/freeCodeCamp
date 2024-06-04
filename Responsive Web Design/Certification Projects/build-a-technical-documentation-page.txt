@@ -1,0 +1,232 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Perl Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Variables">Variables</a></li>
+        <li><a class="nav-link" href="#Data_Types">Data types</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#Syntax">Syntax</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>Perl was originally a language optimized for scanning arbitrary text files, extracting information from those text files, and printing reports based on that information. It quickly became a good language for many system management tasks. Over the years, Perl has grown into a general-purpose programming language. It's widely used for everything from quick "one-liners" to full-scale application development.</p>
+
+<p>The language is intended to be practical (easy to use, efficient, complete) rather than beautiful (tiny, elegant, minimal). It combines (in the author's opinion, anyway) some of the best features of sed, awk, and sh, making it familiar and easy to use for Unix users to whip up quick solutions to annoying problems. Its general-purpose programming facilities support procedural, functional, and object-oriented programming paradigms, making Perl a comfortable language for the long haul on major projects, whatever your bent.</p>
+
+<p>Perl's roots in text processing haven't been forgotten over the years. It still boasts some of the most powerful regular expressions to be found anywhere, and its support for Unicode text is world-class. It handles all kinds of structured text, too, through an extensive collection of extensions. Those libraries, collected in the CPAN, provide ready-made solutions to an astounding array of problems. When they haven't set the standard themselves, they steal from the best -- just like Perl itself.</p>
+      </section>
+
+      <section class="main-section" id="Variables">
+        <header>Variables</header>
+        <p>Variable names in Perl can have several formats. Usually, they must begin with a letter or underscore, in which case they can be arbitrarily long (up to an internal limit of 251 characters) and may contain letters, digits, underscores, or the special sequence :: or '. In this case, the part before the last :: or ' is taken to be a package qualifier; see perlmod. A Unicode letter that is not ASCII is not considered to be a letter unless "use utf8" is in effect, and somewhat more complicated rules apply.</p> 
+        <p>Perl variable names may also be a sequence of digits, a single punctuation character, or the two-character sequence: ^ (caret or CIRCUMFLEX ACCENT) followed by any one of the characters<code> [][A-Z^_?\] </code>. These names are all reserved for special uses by Perl; for example, the all-digits names are used to hold data captured by backreferences after a regular expression match.</p>       
+      </section>
+
+      <section class="main-section" id="Data_Types">
+        <header>Data Types</header>
+        <p>While none of the built-in data types have any arbitrary size limits (apart from memory size), there are still a few arbitrary limits: a given variable name may not be longer than 251 characters. Line numbers displayed by diagnostics are internally stored as short integers, so they are limited to a maximum of 65535 (higher numbers usually being affected by wraparound).</p>
+        <p>The possible constructs are:</p>
+        <ul>
+<li><p>arrays of arrays</p></li>
+<li><p>hashes of arrays</p></li>
+<li><p>arrays of hashes</p></li>
+<li><p>hashes of hashes</p></li>
+<li><p>more elaborate constructs</p></li>
+</ul>     
+
+          <pre><code>$array[7][12]                       # array of arrays
+$array[7]{string}                   # array of hashes
+$hash{string}[7]                    # hash of arrays
+$hash{string}{&#39;another string&#39;}     # hash of hashes</code></pre>   
+      </section>
+
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <p>Any function in the list below may be used either with or without parentheses around its arguments. (The syntax descriptions omit the parentheses.) If you use parentheses, the simple but occasionally surprising rule is this: It looks like a function, therefore it is a function, and precedence doesn't matter. Otherwise it's a list operator or unary operator, and precedence does matter. Whitespace between the function and left parenthesis doesn't count, so sometimes you need to be careful:</p>
+<code>
+print 1+2+4;      # Prints 7.
+print(1+2) + 4;   # Prints 3.
+print (1+2)+4;    # Also prints 3!
+print +(1+2)+4;   # Prints 7.
+print ((1+2)+4);  # Prints 7.</code>
+<p>In general, functions in Perl that serve as wrappers for system calls ("syscalls") of the same name (like chown(2), fork(2), closedir(2), etc.) return true when they succeed and undef otherwise, as is usually mentioned in the descriptions below. This is different from the C interfaces, which return -1 on failure. Exceptions to this rule include wait, waitpid, and syscall. System calls also set the special<code> $!</code> variable on failure. Other functions do not, except accidentally.</p>
+      </section>
+
+      <section class="main-section" id="Syntax">
+        <header>Syntax</header>
+        <p>The sheet of syntax can be seen:</p>
+        <pre><code>CONTEXTS  SIGILS  ref        ARRAYS        HASHES
+void      $scalar SCALAR     @array        %hash
+scalar    @array  ARRAY      @array[0, 2]  @hash{&#39;a&#39;, &#39;b&#39;}
+list      %hash   HASH       $array[0]     $hash{&#39;a&#39;}
+          &amp;sub    CODE
+          *glob   GLOB       SCALAR VALUES
+                  FORMAT     number, string, ref, glob, undef
+REFERENCES
+\      reference       $$foo[1]       aka $foo-&gt;[1]
+$@%&amp;*  dereference     $$foo{bar}     aka $foo-&gt;{bar}
+[]     anon. arrayref  ${$$foo[1]}[2] aka $foo-&gt;[1]-&gt;[2]
+{}     anon. hashref   ${$$foo[1]}[2] aka $foo-&gt;[1][2]
+\()    list of refs
+                       SYNTAX
+OPERATOR PRECEDENCE    foreach (LIST) { }     for (a;b;c) { }
+-&gt;                     while   (e) { }        until (e)   { }
+++ --                  if      (e) { } elsif (e) { } else { }
+**                     unless  (e) { } elsif (e) { } else { }
+! ~ \ u+ u-            given   (e) { when (e) {} default {} }
+=~ !~
+* / % x                 NUMBERS vs STRINGS  FALSE vs TRUE
++ - .                   =          =        undef, &quot;&quot;, 0, &quot;0&quot;
+&lt;&lt; &gt;&gt;                   +          .        anything else
+named uops              == !=      eq ne
+&lt; &gt; &lt;= &gt;= lt gt le ge   &lt; &gt; &lt;= &gt;=  lt gt le ge
+== != &lt;=&gt; eq ne cmp ~~  &lt;=&gt;        cmp
+&amp;
+| ^             REGEX MODIFIERS       REGEX METACHARS
+&amp;&amp;              /i case insensitive   ^      string begin
+|| //           /m line based ^$      $      str end (bfr \n)
+.. ...          /s . includes \n      +      one or more
+?:              /x /xx ign. wh.space  *      zero or more
+= += last goto  /p preserve           ?      zero or one
+, =&gt;            /a ASCII    /aa safe  {3,7}  repeat in range
+list ops        /l locale   /d  dual  |      alternation
+not             /u Unicode            []     character class
+and             /e evaluate /ee rpts  \b     boundary
+or xor          /g global             \z     string end
+                /o compile pat once   ()     capture
+DEBUG                                 (?:p)  no capture
+-MO=Deparse     REGEX CHARCLASSES     (?#t)  comment
+-MO=Terse       .   [^\n]             (?=p)  ZW pos ahead
+-D##            \s  whitespace        (?!p)  ZW neg ahead
+-d:Trace        \w  word chars        (?&lt;=p) ZW pos behind \K
+                \d  digits            (?&lt;!p) ZW neg behind
+CONFIGURATION   \pP named property    (?&gt;p)  no backtrack
+perl -V:ivsize  \h  horiz.wh.space    (?|p|p)branch reset
+                \R  linebreak         (?&lt;n&gt;p)named capture
+                \S \W \D \H negate    \g{n}  ref to named cap
+                                      \K     keep left part
+FUNCTION RETURN LISTS
+stat      localtime    caller         SPECIAL VARIABLES
+ 0 dev    0 second      0 package     $_    default variable
+ 1 ino    1 minute      1 filename    $0    program name
+ 2 mode   2 hour        2 line        $/    input separator
+ 3 nlink  3 day         3 subroutine  $\    output separator
+ 4 uid    4 month-1     4 hasargs     $|    autoflush
+ 5 gid    5 year-1900   5 wantarray   $!    sys/libcall error
+ 6 rdev   6 weekday     6 evaltext    $@    eval error
+ 7 size   7 yearday     7 is_require  $$    process ID
+ 8 atime  8 is_dst      8 hints       $.    line number
+ 9 mtime                9 bitmask     @ARGV command line args
+10 ctime               10 hinthash    @INC  include paths
+11 blksz               3..10 only     @_    subroutine args
+12 blcks               with EXPR      %ENV  environment</code></pre>
+      </section>
+
+    </main>
+  </body>
+  </html>
+
+** end of undefined **
+
+** start of undefined **
+
+#navbar {
+  position: fixed;
+  min-width: 10%;
+  top: 0px;
+  left: 0px;
+  width: 10rem;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  color: #4d4e53;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+header {
+  color: black;
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+#main-doc {
+  position: absolute;
+  margin-left: 10rem;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+@media only screen and (max-width: 815px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+
+  #navbar {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 17rem;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+}
+
+** end of undefined **
+

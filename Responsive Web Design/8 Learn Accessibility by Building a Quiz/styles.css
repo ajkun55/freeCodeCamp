@@ -1,0 +1,26 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: lightgray;
+  color: #1b1b32;
+  font-family: Helvetica;
+  margin: 0;  
+  width:100%;
+}
+#img-div{   
+  margin: 0 auto;
+}
+#image{  
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+h1,h2,p,ul,footer{
+  text-align:center;
+  margin:0 auto;
+}

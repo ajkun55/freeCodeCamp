@@ -1,0 +1,472 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamPro Product Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap" rel="stylesheet"/>
+     </head>
+  <body>
+    <header id="header">
+        <div class="logo">
+          <img id="header-img"
+            src="https://images.unsplash.com/photo-1605287977617-ddd865d5f696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTYzMzYxODV8&ixlib=rb-4.0.3&q=80&w=400"
+            alt="original logo"/>
+        </div>
+
+        <nav id="nav-bar">
+          <ul>
+            <li><a class="nav-link" href="#features">Features</a></li>
+            <li><a class="nav-link" href="#advantages">Advantages</a></li>
+            <li><a class="nav-link" href="#demo">Video Demo</a></li>
+            <li><a class="nav-link" href="#pricing">Pricing</a></li>
+          </ul>
+        </nav>
+      </header>
+
+         <div class="container"></div>
+
+      <section id="hero">
+        <h2>Providing flexibility and scalability as streaming endeavors.</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+          <input name="email" id="email" type="email" placeholder="Enter your email address" required />
+          <input id="submit" type="submit" value="Get Started" class="btn" />
+        </form>
+      </section>
+
+<div class="container">
+
+<section id="features">
+          <div class="grid">
+            <div class="icon"><ion-icon name="caret-forward-circle-outline"></ion-icon></div>
+            <div class="desc">
+              <h2>High-Quality Streaming</h2>
+              <p>StreamPro enables users to stream in crisp HD or even 4K resolution, ensuring top-notch video quality for viewers.</p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon"><ion-icon name="film-outline"></ion-icon></div>
+            <div class="desc">
+              <h2>Multi-Platform Compatibility</h2>
+              <p>Whether you're streaming on Twitch, YouTube, Facebook Live, or any other platform, StreamPro seamlessly integrates with popular streaming services.</p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon">
+              <ion-icon name="film-outline"></ion-icon>
+            </div>
+            <div class="desc">
+              <h2>Customizable Overlays</h2>
+              <p>With built-in overlay customization tools, users can personalize their streams with overlays, alerts, and widgets, enhancing viewer engagement.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="demo">
+          <iframe id="video" height="315"
+            src="https://www.youtube-nocookie.com/embed/7AMRfNKwuYo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen ></iframe>
+        </section>
+
+        <section id="advantages">
+          <div class="grid">
+            <div class="icon"><ion-icon name="film-outline"></ion-icon></div>
+            <div class="desc">
+              <h2>Ease of Use</h2>
+              <p>StreamPro offers a user-friendly interface, making it easy for beginners to start streaming without a steep learning curve.</p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon"><ion-icon name="thumbs-up-outline"></ion-icon></div>
+            <div class="desc">
+              <h2>Reliability</h2>
+              <p>Built with robust hardware and software, StreamPro ensures stable and reliable streaming performance, even during extended streaming sessions.</p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon">
+              <ion-icon name="medkit-outline"></ion-icon>
+            </div>
+            <div class="desc">
+              <h2>Professional Streaming Experience</h2>
+              <p>With advanced features like customizable overlays and support for high-resolution streaming, StreamPro helps content creators deliver a professional-quality streaming experience to their audience.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing">
+          <div class="product" id="tenor">
+            <div class="level">Basic Plan</div>
+            <h2>$99/year</h2>
+            <ol>
+              <li>HD streaming.</li>
+              <li>basic overlay customization.</li>
+              <li>support for two streaming platforms.</li>
+            </ol>
+            <button class="btn">Select</button>
+          </div>
+          <div class="product" id="bass">
+            <div class="level">Pro Plan</div>
+            <h2>$199/year</h2>
+            <ol>
+              <li>4K streaming.</li>
+              <li>advanced overlay customization.</li>
+              <li>support for unlimited streaming platforms.</li>
+              <li>priority customer support.</li>
+            </ol>
+            <button class="btn">Select</button>
+          </div>
+          <div class="product" id="valve">
+            <div class="level">Enterprise Plan</div>
+            <h2>Custom Quote</h2>
+            <ol>
+              <li>Tailored solutions for businesses and organizations.</li>
+              <li>dedicated account manager.</li>
+              <li>white-label branding options.</li>
+              <li>enterprise-grade security and support.</li>
+            </ol>
+            <button class="btn">Select</button>
+          </div>
+        </section>
+
+        <footer>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <span>Copyright 2024, Stream Pro Technology</span>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: 'Baskervville','Anton','Raleway';
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/** global classes styling **/
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 0 20px;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 3px black solid;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.grid {
+  display: flex;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  min-height: 75px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #eee;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+.logo {
+  width: 60vw;
+}
+@media (min-width: 650px) {
+  header{
+    max-height:4rem;
+  }
+  .logo {
+    visibility: hidden;
+  }
+}
+@media (max-width: 650px) {
+  .logo {
+    margin-top: 15px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.logo > img {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 20px;
+}
+
+@media (max-width: 650px) {
+  .logo > img {
+    margin: 0 auto;
+  }
+}
+
+nav {
+  font-weight: 400;
+}
+
+@media (max-width: 650px) {
+  nav {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+  }
+  nav li {
+    padding-bottom: 5px;
+  }
+}
+
+nav > ul {
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (max-width: 650px) {
+  nav > ul {
+    flex-direction: column;
+  }
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  height: 18rem;
+  margin-top: 50px;
+  background-image: url('https://images.unsplash.com/photo-1472457897821-70d3819a0e24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTYzMzU1ODd8&ixlib=rb-4.0.3&q=80&w=400');
+  background-size:contain;
+}
+
+#hero > h2 {
+  font-family:'Anton';
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+#hero input[type='email'] {
+  max-width: 275px;
+  width: 100%;
+  padding: 5px;
+}
+
+#hero input[type='submit'] {
+  max-width: 150px;
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  border: 0; color:white;
+  background-color: #f1c40f;
+}
+
+#hero input[type='submit']:hover {
+  background-color: orange;
+  transition: background-color 1s;
+}
+
+@media (max-width: 650px) {
+  #hero {
+    margin-top: 20rem;
+  }
+}
+
+#features, #advantages, #demo {
+  margin-top: 30px;
+}
+
+#features .icon,#advantages .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 125px;
+  width: 20vw;
+  color: darkorange;
+}
+
+@media (max-width: 550px) {
+  #features .icon {
+    display: none;
+  }
+}
+
+#features .desc, #advantages .desc  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 125px;
+  width: 80vw;
+  padding: 5px;
+}
+
+@media (max-width: 550px) {
+  #features .desc {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    height: 150px;
+  }
+}
+
+@media (max-width: 650px) {
+  #features {
+    margin-top: 0;
+  }
+}
+
+#demo {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#demo > iframe {
+  max-width: 560px;
+  width: 100%;
+}
+
+#pricing {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: calc(100% / 3);
+  margin: 10px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.product > .level {
+  background-color: #ddd;
+  color: black;
+  padding: 15px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.product > h2 {
+  margin-top: 15px;
+  font-family:'Raleway';
+}
+
+.product > ol {
+  margin: 15px 0;
+}
+
+.product > ol > li {
+  padding: 5px 0;
+}
+
+.product > button {
+  border: 0;
+  margin: 15px 0;
+  background-color: #f1c40f;
+  font-weight: 700;
+  font-family:'Raleway';
+}
+
+.product > button:hover {
+  background-color: orange;
+  transition: background-color 1s;
+}
+
+@media (max-width: 800px) {
+  #pricing {
+    flex-direction: column;
+  }
+  .product {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}
+
+footer {
+  margin-top: 30px;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+footer > ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer > ul > li {
+  padding: 0 10px;
+}
+
+footer > span {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+  color: #444;
+}
+
+** end of undefined **
+

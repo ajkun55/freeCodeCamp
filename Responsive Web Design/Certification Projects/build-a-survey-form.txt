@@ -1,0 +1,141 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>survey-form.freecodecamp.rocks/</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id='title'>freeCodeCamp Survey Form</h1>
+    <p id='description'>Thank you for taking the time to help us improve the platform</p>
+    <form id='survey-form'>
+      <label id="name-label" >Name<input id='name' type='text' required placeholder='Enter your name'/></label>      
+      <label id="email-label" >Email<input id='email' type='email'required placeholder='Enter your Email'/></label>      
+      <label id="number-label" >Age (optional)<input id='number' type='number'min='13' max='120' pattern='^[0-9]*$' placeholder='Age' /></label>
+
+      <p>Which option best describes your current role?</p>
+      <select id='dropdown'>
+        <option value='student'>Student</option>
+        <option value='job'>Full-time job</option>
+        <option value='learner'>Full-time learner</option>
+        <option value='others'>Others</option>
+      </select>
+      <p>Would you recommend freeCodeCamp to a friend?</p>
+      <label><input type='radio' name='recom' value='yes'class="inline"/>Definitely</label>
+      <label><input type='radio' name='recom' value='may'class="inline"/>Maybe</label>
+      <label><input type='radio' name='recom' value='no'class="inline"/>No</label>
+      <p>What is your favorite feature of freeCodeCamp?</p>
+      <select id='dropdown'>
+        <option value='challenges'>Challenges</option>
+        <option value='projects'>Projects</option>
+        <option value='community'>Community</option>
+        <option value='open'>Open source</option>
+      </select>
+      <p>What would you like to see improved? (Check all that apply)</p>
+      <label ><input type='checkbox' name='type'value= 'front'class="inline"/>Front-end Projects</label>
+      <label ><input type='checkbox' name='type'value= 'back'class="inline"/>Back-end Projects</label>
+      <label ><input type='checkbox' name='type'value= 'data visu' class="inline"/>Data Visualization</label>
+      <label><input type='checkbox' name='type' value= 'challeng' class="inline"/>Challenges</label>
+      <label><input type='checkbox' name='type' value= 'open source' class="inline"/>Open Source Community</label>
+      <label><input type='checkbox' name='type' value= 'help' class="inline"/>Gitter help rooms</label>
+      <label><input type='checkbox' name='type'  value= 'video' class="inline"/>Videos</label>
+      <label ><input type='checkbox' name='type'value= 'meet' class="inline"/>City Meetups</label>
+      <label ><input type='checkbox' name='type' value= 'wiki' class="inline"/>Wiki</label>
+      <label ><input type='checkbox' name='type' value= 'forum' class="inline"/>Forum</label>
+      <label><input type='checkbox' name='type'value= 'course' class="inline"/>Additional Courses</label>
+
+      <p>Any comments or suggestions?</p>
+      <textarea></textarea>
+      <button id='submit'>Submit</button>
+    </form>
+  </body>
+  </html>
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  background-color: darkblue;
+  color: #f5f6f7;
+  font-family: Tahoma;
+  font-size: 16px;
+}
+
+h1, p {
+  margin: 1em auto;
+  text-align: center;
+}
+
+form {
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+fieldset {
+  border: none;
+  padding: 2rem 0;
+  border-bottom: 3px solid #3b3b4f;
+}
+
+fieldset:last-of-type {
+  border-bottom: none;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+input,
+textarea,
+select {
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+}
+
+input, textarea {
+  background-color: #0a0a23;
+  border: 1px solid #0a0a23;
+  color: #ffffff;
+}
+
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+
+#submit{
+  display: block;
+  width: 60%;
+  margin: 1em auto;
+  height: 2em;
+  font-size: 1.1rem;
+  background-color: #3b3b4f;
+  border-color: white;
+  min-width: 300px;
+}
+
+input[type="file"] {
+  padding: 1px 2px;
+}
+
+.inline{
+  display: inline; 
+}
+
+a{color:#dfdfe2;}
+
+
+** end of undefined **
+
