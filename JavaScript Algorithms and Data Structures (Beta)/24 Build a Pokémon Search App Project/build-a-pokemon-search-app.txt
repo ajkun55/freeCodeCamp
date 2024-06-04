@@ -1,0 +1,197 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Search App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Pokémon Search App</h1>
+      <form>
+        <label for= "search-input">Search for Pokémon Name or ID:</label>
+        <input type='text' id="search-input" required>
+        <button id="search-button">Search</button>
+      </form>
+
+      <div class="output">
+
+        <div class="info">
+          <p>Pokémon Name: 
+            <span id = "pokemon-name"></span>
+          </p>
+          <p>Pokémon ID: 
+            <span id = "pokemon-id"></span>
+          </p>
+          <p>Pokémon Weight: 
+            <span id = "weight"></span>
+          </p>
+          <p>Pokémon Height: 
+            <span id = "height"></span>
+          </p>
+          <div id="sprite-container" class="sprite-container"></div>
+          <p>Pokémon Type: 
+            <span id = "types"></span>
+          </p>
+        </div>
+
+        <table>
+          <tr id="">
+            <th>Base</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>HP: </td>
+            <td id="hp"></td>
+          </tr>
+          <tr>
+            <td>Attack: </td>
+            <td id="attack"></td>
+          </tr>
+          <tr>
+            <td>Defense: </td>
+            <td id="defense"></td>
+          </tr>
+          <tr>
+            <td>Sp. Attack: </td>
+            <td id="special-attack"></td>
+          </tr>
+          <tr>
+            <td>Sp. Defense:</td>
+            <td id="special-defense"></td>
+          </tr>
+          <tr>
+            <td>Speed: </td>
+            <td id="speed"></td>
+          </tr>
+        </table>
+      </div>
+    <script src="./script.js"></script>
+    </main>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+main{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  gap: 2rem;
+}
+
+form{
+  margin: 0 auto;
+}
+
+.output{
+  width: 80%; 
+}
+
+.output p{
+    height: 2rem;
+  }
+
+.info{
+  background-color: lightyellow;
+  padding: 1rem;
+}
+
+table{
+  background-color: lightblue;
+  margin: 2rem auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+tr{
+  height: 2.4rem;
+  border: 1px solid gray
+}
+
+.type{
+  margin-right:2rem;
+}
+
+** end of undefined **
+
+** start of undefined **
+
+const input = document.getElementById("search-input");
+const btn = document.getElementById("search-button");
+const pkname = document.getElementById("pokemon-name");
+const id = document.getElementById("pokemon-id");
+const weight = document.getElementById("weight");
+const height = document.getElementById("height");
+const type = document.getElementById("types");
+const hp = document.getElementById("hp");
+const attack = document.getElementById("attack");
+const defense = document.getElementById("defense");
+const spattack = document.getElementById("special-attack");
+const spdefense = document.getElementById("special-defense");
+const speed = document.getElementById("speed");
+const spritecontainer=document.getElementById("sprite-container");
+
+btn.addEventListener("click",()=>{
+const pkmtosearch = input.value.toLowerCase();
+const pkmurl = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/'+pkmtosearch;
+
+const fetchData = async() => {
+  try {
+    const res = await fetch(pkmurl);
+    const data = await res.json();
+   
+    pkname.textContent=data.name.toUpperCase();
+    id.textContent=data.id;
+    weight.textContent=data.weight;
+    height.textContent=data.height;
+    spritecontainer.innerHTML=`<img src='${data.sprites.front_default}' id="sprite" alt='' />`;
+    type.innerHTML=types.innerHTML = data.types
+      .map(obj => `<span class="type ${obj.type.name.toUpperCase()}">${obj.type.name.toUpperCase()}</span>`)
+      .join('');
+    hp.textContent=data.stats[0].base_stat;
+    attack.textContent=data.stats[1].base_stat;
+    defense.textContent=data.stats[2].base_stat;
+    spattack.textContent=data.stats[3].base_stat;
+    spdefense.textContent=data.stats[4].base_stat;
+    speed.textContent=data.stats[5].base_stat;
+  } catch (err) {
+    alert("Pokémon not found");
+  }
+};
+
+fetchData();
+});
+
+/*
+   fetch('https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/25')
+  .then((res) => res.json())      
+  .then((data) => { 
+    console.log(data.sprites.front_default)
+     });*/
+
+** end of undefined **
+

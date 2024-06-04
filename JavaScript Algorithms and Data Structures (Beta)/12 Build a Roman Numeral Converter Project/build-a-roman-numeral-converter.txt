@@ -1,0 +1,162 @@
+** start of undefined **
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Roman Numeral Converter</h1>
+      <form>
+        <fieldset>
+          <label>Enter your number</label>
+          <input id="number" type="number">
+          <button id="convert-btn">Convert</button>
+        </fieldset>
+      </form>
+      <div id="output" class="output hidden"></div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color:lightcyan;
+  display:grid;
+  place-items:center;
+  line-height:2;
+  font-size:18px;
+}
+fieldset{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  border-radius:2rem
+}
+label{
+  margin-top:1rem;
+}
+input{
+  width:50%;
+  margin:1rem auto;
+  height:3rem;
+  border-radius:1rem;
+  border:1px solid coral;
+  text-align:center;
+}
+button{
+  padding:1rem 2rem;
+  width:50%;
+  margin:1rem auto;
+  border:none;
+  border-radius:4rem;
+  background-color:cadetblue;
+  font-size:1.1rem;
+  color:darkslategrey;
+}
+.hidden{
+  visibility:hidden;
+}
+.show{
+  visibility:visible;
+}
+.output{
+  min-height: 5rem;
+  border: 2px solid honeydew;
+  margin-top: 1rem;
+  border-radius:1rem;
+  background-color:indianred;
+  font-size:2rem;
+  text-align: center;
+  font-weight: bold;
+  color: midnightblue;
+}
+
+** end of undefined **
+
+** start of undefined **
+
+
+const input = document.getElementById("number");
+const btn = document.getElementById("convert-btn");
+const output = document.getElementById("output");
+
+function showOutput(){
+  output.classList.remove("hidden");
+  output.classList.add("show");
+}
+
+btn.addEventListener("click",()=>{
+  const number = parseInt(input.value);
+  showOutput();
+  if(!number){
+    output.innerText = "Please enter a valid number";return
+  }
+  if(number === -1){
+    output.innerText = "Please enter a number greater than or equal to 1";return
+  }
+  if(number >= 4000){
+    output.innerText = "Please enter a number less than or equal to 3999";return
+  }
+  output.innerText = convert(number);
+});
+
+const ref = [
+    ['M', 1000],
+    ['CM', 900],
+    ['D', 500],
+    ['CD', 400],
+    ['C', 100],
+    ['XC', 90],
+    ['L', 50],
+    ['XL', 40],
+    ['X', 10],
+    ['IX', 9],
+    ['V', 5],
+    ['IV', 4],
+    ['I', 1]
+  ];
+
+function convert(num){
+  if (num === 1){return "I";}
+  if (num === 4){return "IV";}
+  if (num === 5){return "V";}
+  if (num === 9){return "IX";}
+  if (num === 10){return "X";}
+  if (num === 40){return "XL";}
+  if (num === 50){return "L";}
+  if (num === 90){return "XC";}
+  if (num === 100){return "C";}
+  if (num === 400){return "CD";}
+  if (num === 500){return "D";}
+  if (num === 900){return "900";}
+  if (num === 1000){return "M";}
+  let ans = [];
+  ref.forEach((thresh)=>{
+    while(num >= thresh[1]){
+      ans.push(thresh[0]);
+      num -= thresh[1];
+    }
+  });
+  return ans.join('');
+}
+
+
+** end of undefined **
+

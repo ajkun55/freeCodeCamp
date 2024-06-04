@@ -1,0 +1,91 @@
+let price = 19.5;
+let cid = [
+  ["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]
+];
+
+let reversecid=[];
+for(let i = 0; i< cid.length;i++){
+  reversecid.push(cid[cid.length-1-i]);
+}
+
+
+const cash = document.getElementById("cash");
+const changedue = document.getElementById("change-due");
+const btn = document.getElementById("purchase-btn");
+
+function round(num, decimalPlaces = 0) {
+    num = Math.round(num + "e" + decimalPlaces);
+    return Number(num + "e" + -decimalPlaces);
+}
+
+
+
+let computechange =(money)=>{
+  
+const curr = [
+  ["ONE HUNDRED", 100], 
+  ["TWENTY", 20], 
+  ["TEN", 10],
+  ["FIVE", 5], 
+  ["ONE", 1],
+  ["QUARTER", 0.25], 
+  ["DIME", 0.1], 
+  ["NICKEL", 0.05], 
+  ["PENNY", 0.01],
+];
+let changetogive = money-price;
+let res = [];
+for(let i=0;i<curr.length;i++) {
+    let arr = curr[i]; //console.log(arr);
+    let arr2 = reversecid[i]; //console.log(arr2);
+    changetogive=parseFloat(changetogive).toFixed(2);
+    while (changetogive >= arr[1] && arr2[1] !== 0) {
+      res.push([arr[0], arr[1]]);
+      changetogive -= arr[1];
+      changetogive=round(changetogive, 2);
+      arr2[1] -=arr[1]; 
+      arr2[1]= round(arr2[1],2);
+      arr[1]= round(arr[1],2);
+    }
+  };
+let count = [];
+res.forEach(function(arr) { 
+  count[arr[0]] = round((count[arr[0]]||0) + arr[1],2);});
+  
+  return count; 
+}
+
+
+const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
+
+btn.addEventListener("click",()=>{
+  let money = Number(cash.value);
+  let change = computechange(money);
+const str = Object.keys(change).map(key => `${key}: $${change[key]}`).join(" ");
+
+let sum = 0;
+for( let i = 0; i < cid.length;i++){  
+  sum += cid[i][1];
+}
+let totalcid = sum;
+console.log(totalcid);
+
+let amount = round((money-price), 2);
+
+  if(money < price){
+  alert("Customer does not have enough money to purchase the item"); return
+  }
+  if(money === price){
+    changedue.innerText = 'No change due - customer paid with exact cash'; return
+  }
+  if( (amount > totalcid) ){
+    changedue.innerText = "Status: INSUFFICIENT_FUNDS"; return}
+  if( amount > sumValues(change) ){
+    changedue.innerText = "Status: INSUFFICIENT_FUNDS"; return}
+  if( !str){changedue.innerText = "Status: INSUFFICIENT_FUNDS"; return}
+else if(amount === totalcid){
+  changedue.innerText = "Status: CLOSED " + str; return} 
+else {
+  changedue.innerText = ("Status: OPEN "+str); return
+}
+  });
